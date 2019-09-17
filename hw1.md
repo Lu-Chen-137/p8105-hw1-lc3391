@@ -22,13 +22,13 @@ la_df= tibble(
 mean(pull(la_df, norm_samp))
 ```
 
-    ## [1] -0.01912714
+    ## [1] 0.1466755
 
 ``` r
 mean(pull(la_df, norm_samp_pos))
 ```
 
-    ## [1] 0.5
+    ## [1] 0.625
 
 ``` r
 mean(pull(la_df, vec_char))
@@ -48,21 +48,23 @@ mean(pull(la_df, vec_factor))
 
     ## [1] NA
 
-The mean of the numeric vector, norm\_samp, is -0.0191271; The mean of the logical vector, norm\_samp\_pos is 0.5; And NO mean could be taken for the character vector and factor vector.
+-   The mean of the numeric vector, norm\_samp, is 0.1466755;
+-   The mean of the logical vector, norm\_samp\_pos is 0.625;
+-   And NO mean could be taken for the character vector and factor vector.
 
 converting variables from one type to another
 ---------------------------------------------
 
 ``` r
-#covert the logical vector to numeric and multiply the random samnple by the result
+#convert the logical vector to numeric and multiply the random sample by the result
 as.numeric(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 ```
 
-    ## [1] 0.35516435 0.05999566 0.00000000 0.68948234 0.00000000 0.00000000
-    ## [7] 0.00000000 0.80262698
+    ## [1] 0.3204064 0.0000000 0.4680994 0.6571017 0.9321928 0.3065544 0.0000000
+    ## [8] 0.0000000
 
 ``` r
-#covert the logical vector to factor and multiply the random samnple by the result
+#convert the logical vector to factor and multiply the random sample by the result
 as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 ```
 
@@ -73,8 +75,8 @@ as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 as.numeric(as.factor(pull(la_df, norm_samp_pos)))*pull(la_df, norm_samp)
 ```
 
-    ## [1]  0.7103287  0.1199913 -0.2745172  1.3789647 -0.7905812 -0.5528112
-    ## [7] -0.4423769  1.6052540
+    ## [1]  0.6408127 -0.2963206  0.9361987  1.3142035  1.8643857  0.6131088
+    ## [7] -0.3448897 -0.8697400
 
 Problem 2
 =========
@@ -92,7 +94,14 @@ p2_df= tibble(
 Short descprition
 -----------------
 
-the number of row in `p2_df` is 500; the number of column in `p2_df` is 5; the mean of the x is 0.1012459; the mean of the y is -0.0817329; the median of the x is 0.1051246; the median of the y is -0.0730856; the standard deviation of x is 1.041212; the proportion of cases for which x + y &gt; 1 is 0.256;
+-   the number of row in `p2_df` is 500;
+-   the number of column in `p2_df` is 5;
+-   the mean of the x is 0.0108743;
+-   the mean of the y is 0.0203131;
+-   the median of the x is 0.0186161;
+-   the median of the y is 0.0307908;
+-   the standard deviation of x is 0.981596;
+-   the proportion of cases for which x + y &gt; 1 is 0.256;
 
 Scatterplot
 -----------
@@ -117,3 +126,15 @@ ggplot(p2_df, aes (x = x, y = y, color = vec_fac2)) + geom_point()
 ```
 
 ![](hw1_files/figure-markdown_github/problem2_part2-3.png)
+
+Comments on color scale
+-----------------------
+
+-   The first and third scatterplot have two color in the scale: one represnts TRUE and the other represents FALSE.
+-   The second scatterplot uses a blue color bar to represent different scale. Smaller values associate with darker blue while bigger numbers associate with lighter blue.
+
+``` r
+ggsave("Problem2_firstplot.pdf",plot = ggplot(p2_df, aes (x = x, y = y, color = vec_log2)) + geom_point())
+```
+
+    ## Saving 7 x 5 in image

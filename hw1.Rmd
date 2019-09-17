@@ -30,17 +30,17 @@ mean(pull(la_df, vec_factor))
 
 ```
 
-The mean of the numeric vector, norm_samp, is `r mean(pull(la_df, norm_samp))`;
-The mean of the logical vector, norm_samp_pos is `r mean(pull(la_df, norm_samp_pos))`;
-And NO mean could be taken for the character vector and factor vector.
+- The mean of the numeric vector, norm_samp, is `r mean(pull(la_df, norm_samp))`;
+- The mean of the logical vector, norm_samp_pos is `r mean(pull(la_df, norm_samp_pos))`;
+- And NO mean could be taken for the character vector and factor vector.
 
 ##converting variables from one type to another
 ```{r problem1_partb, warning = FALSE}
 
-#covert the logical vector to numeric and multiply the random samnple by the result
+#convert the logical vector to numeric and multiply the random sample by the result
 as.numeric(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 
-#covert the logical vector to factor and multiply the random samnple by the result
+#convert the logical vector to factor and multiply the random sample by the result
 as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 
 #convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
@@ -61,14 +61,14 @@ p2_df= tibble(
 ```
 
 ##Short descprition
-the number of row in `p2_df` is `r nrow(p2_df)`;
-the number of column in `p2_df` is `r ncol(p2_df)`;
-the mean of the x is `r mean(pull(p2_df, x))`;
-the mean of the y is `r mean(pull(p2_df, y))`;
-the median of the x is `r median(pull(p2_df, x))`;
-the median of the y is `r median(pull(p2_df, y))`;
-the standard deviation of x is `r sd(pull(p2_df, x))`;
-the proportion of cases for which x + y > 1 is `r mean(pull(p2_df, vec_log2))`;
+- the number of row in `p2_df` is `r nrow(p2_df)`;
+- the number of column in `p2_df` is `r ncol(p2_df)`;
+- the mean of the x is `r mean(pull(p2_df, x))`;
+- the mean of the y is `r mean(pull(p2_df, y))`;
+- the median of the x is `r median(pull(p2_df, x))`;
+- the median of the y is `r median(pull(p2_df, y))`;
+- the standard deviation of x is `r sd(pull(p2_df, x))`;
+- the proportion of cases for which x + y > 1 is `r mean(pull(p2_df, vec_log2))`;
 
 ##Scatterplot
 ```{r problem2_part2}
@@ -83,4 +83,12 @@ ggplot(p2_df, aes (x = x, y = y, color = vec_fac2)) + geom_point()
 
 ```
 
+##Comments on color scale
+- The first and third scatterplot have two color in the scale: one represnts TRUE and the other represents FALSE.
+- The second scatterplot uses a blue color bar to represent different scale. Smaller values associate with darker blue while bigger numbers associate with lighter blue.
+
+```{r problem2_part3}
+ggsave("Problem2_firstplot.pdf",plot = ggplot(p2_df, aes (x = x, y = y, color = vec_log2)) + geom_point())
+
+```
 
