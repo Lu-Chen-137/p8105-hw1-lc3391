@@ -1,13 +1,18 @@
 ---
-title: "p8105-hw1-lc3391"
+title: "p8105_hw1_lc3391"
+date: "09/17/2019"
 output: github_document
 ---
 
-#problem 1 
-
-```{r problem1-hw1}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+```
 
+#Problem 1
+
+##Creating a data frame
+```{r}
 la_df= tibble(
   norm_samp = rnorm(8),
   norm_samp_pos = norm_samp > 0,
@@ -21,8 +26,19 @@ mean(pull(la_df, norm_samp_pos))
 mean(pull(la_df, vec_char))
 mean(pull(la_df, vec_factor))
 
+```
+##converting variables from one type to another
+```{r}
 
 ```
 
 
+#Problem 2
+```{r}
+p2_df= tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  vec_log = x + y > 1
+)
+```
 
