@@ -65,9 +65,7 @@ p2_df= tibble(
 - the number of row in `p2_df` is `r nrow(p2_df)`;
 - the number of column in `p2_df` is `r ncol(p2_df)`;
 - the mean of the x is `r mean(pull(p2_df, x))`;
-- the mean of the y is `r mean(pull(p2_df, y))`;
 - the median of the x is `r median(pull(p2_df, x))`;
-- the median of the y is `r median(pull(p2_df, y))`;
 - the standard deviation of x is `r sd(pull(p2_df, x))`;
 - the proportion of cases for which x + y > 1 is `r mean(pull(p2_df, vec_log2))`;
 
