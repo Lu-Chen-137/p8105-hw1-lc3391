@@ -9,6 +9,8 @@ Creating a data frame
 ---------------------
 
 ``` r
+library(tidyverse)
+
 la_df= tibble(
   norm_samp = rnorm(8),
   norm_samp_pos = norm_samp > 0,
@@ -20,13 +22,13 @@ la_df= tibble(
 mean(pull(la_df, norm_samp))
 ```
 
-    ## [1] -0.1343904
+    ## [1] -0.01912714
 
 ``` r
 mean(pull(la_df, norm_samp_pos))
 ```
 
-    ## [1] 0.375
+    ## [1] 0.5
 
 ``` r
 mean(pull(la_df, vec_char))
@@ -46,7 +48,7 @@ mean(pull(la_df, vec_factor))
 
     ## [1] NA
 
-The mean of the numeric vector, norm\_samp, is -0.1343904. The mean of the logical vector, norm\_samp\_pos is 0.375. And NO mean could be taken for the character vector and factor vector.
+The mean of the numeric vector, norm\_samp, is -0.0191271; The mean of the logical vector, norm\_samp\_pos is 0.5; And NO mean could be taken for the character vector and factor vector.
 
 converting variables from one type to another
 ---------------------------------------------
@@ -56,8 +58,8 @@ converting variables from one type to another
 as.numeric(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 ```
 
-    ## [1] 0.15133162 0.00000000 0.00000000 0.00000000 0.91154280 0.06797252
-    ## [7] 0.00000000 0.00000000
+    ## [1] 0.35516435 0.05999566 0.00000000 0.68948234 0.00000000 0.00000000
+    ## [7] 0.00000000 0.80262698
 
 ``` r
 #covert the logical vector to factor and multiply the random samnple by the result
@@ -71,8 +73,8 @@ as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 as.numeric(as.factor(pull(la_df, norm_samp_pos)))*pull(la_df, norm_samp)
 ```
 
-    ## [1]  0.3026632 -0.1626245 -0.4130264 -0.4824880  1.8230856  0.1359450
-    ## [7] -0.2715142 -0.8763170
+    ## [1]  0.7103287  0.1199913 -0.2745172  1.3789647 -0.7905812 -0.5528112
+    ## [7] -0.4423769  1.6052540
 
 Problem 2
 =========
@@ -81,6 +83,37 @@ Problem 2
 p2_df= tibble(
   x = rnorm(500),
   y = rnorm(500),
-  vec_log = x + y > 1
+  vec_log2 = x + y > 1,
+  vec_num2 = as.numeric(vec_log2),
+  vec_fac2 = as.factor(vec_log2)
 )
 ```
+
+Short descprition
+-----------------
+
+the number of row in `p2_df` is 500; the number of column in `p2_df` is 5; the mean of the x is 0.1012459; the mean of the y is -0.0817329; the median of the x is 0.1051246; the median of the y is -0.0730856; the standard deviation of x is 1.041212; the proportion of cases for which x + y &gt; 1 is 0.256;
+
+Scatterplot
+-----------
+
+``` r
+#A scatterplot for logical vector
+ggplot(p2_df, aes (x = x, y = y, color = vec_log2)) + geom_point()
+```
+
+![](hw1_files/figure-markdown_github/problem2_part2-1.png)
+
+``` r
+#A scatterplot for numeric vector
+ggplot(p2_df, aes (x = x, y = y, color = vec_num2)) + geom_point()
+```
+
+![](hw1_files/figure-markdown_github/problem2_part2-2.png)
+
+``` r
+#A scatterplot for factor vector
+ggplot(p2_df, aes (x = x, y = y, color = vec_fac2)) + geom_point()
+```
+
+![](hw1_files/figure-markdown_github/problem2_part2-3.png)

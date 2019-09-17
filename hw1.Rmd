@@ -32,7 +32,7 @@ mean(pull(la_df, vec_factor))
 
 The mean of the numeric vector, norm_samp, is `r mean(pull(la_df, norm_samp))`;
 The mean of the logical vector, norm_samp_pos is `r mean(pull(la_df, norm_samp_pos))`;
-And NO mean could be taken for the character vector and factor vector
+And NO mean could be taken for the character vector and factor vector.
 
 ##converting variables from one type to another
 ```{r problem1_partb, warning = FALSE}
@@ -69,4 +69,18 @@ the median of the x is `r median(pull(p2_df, x))`;
 the median of the y is `r median(pull(p2_df, y))`;
 the standard deviation of x is `r sd(pull(p2_df, x))`;
 the proportion of cases for which x + y > 1 is `r mean(pull(p2_df, vec_log2))`;
+
+##Scatterplot
+```{r problem2_part2}
+#A scatterplot for logical vector
+ggplot(p2_df, aes (x = x, y = y, color = vec_log2)) + geom_point()
+
+#A scatterplot for numeric vector
+ggplot(p2_df, aes (x = x, y = y, color = vec_num2)) + geom_point()
+
+#A scatterplot for factor vector
+ggplot(p2_df, aes (x = x, y = y, color = vec_fac2)) + geom_point()
+
+```
+
 
