@@ -23,12 +23,41 @@ library(tidyverse)
 la_df= tibble(
   norm_samp = rnorm(8),
   norm_samp_pos = norm_samp > 0,
+  vec_char = c("a","b","c","d","e","f","g","h"),
+  vec_factor = factor(c("low","med","high","low","low","med","high","high"))
+
 )
 
-mean_samp = mean(pull(la_df, norm_samp))
+mean(pull(la_df, norm_samp))
 ```
 
-The mean of the sample is -0.0908638
+    ## [1] -0.1080669
+
+``` r
+mean(pull(la_df, norm_samp_pos))
+```
+
+    ## [1] 0.375
+
+``` r
+mean(pull(la_df, vec_char))
+```
+
+    ## Warning in mean.default(pull(la_df, vec_char)): argument is not numeric or
+    ## logical: returning NA
+
+    ## [1] NA
+
+``` r
+mean(pull(la_df, vec_factor))
+```
+
+    ## Warning in mean.default(pull(la_df, vec_factor)): argument is not numeric
+    ## or logical: returning NA
+
+    ## [1] NA
+
+The mean of the sample is -0.1080669
 
 R Markdown
 ----------

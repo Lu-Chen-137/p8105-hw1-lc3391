@@ -11,9 +11,16 @@ library(tidyverse)
 la_df= tibble(
   norm_samp = rnorm(8),
   norm_samp_pos = norm_samp > 0,
+  vec_char = c("a","b","c","d","e","f","g","h"),
+  vec_factor = factor(c("low","med","high","low","low","med","high","high"))
+
 )
 
-mean_samp = mean(pull(la_df, norm_samp))
+mean(pull(la_df, norm_samp))
+mean(pull(la_df, norm_samp_pos))
+mean(pull(la_df, vec_char))
+mean(pull(la_df, vec_factor))
+
 
 ```
 
