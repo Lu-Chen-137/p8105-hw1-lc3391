@@ -3,8 +3,9 @@ title: "p8105-hw1-lc3391"
 output: github_document
 ---
 
-#problem 1 
+#Problem 1 
 
+##creating a data frame
 ```{r problem1-hw1}
 library(tidyverse)
 
@@ -24,5 +25,11 @@ mean(pull(la_df, vec_factor))
 
 ```
 
+
+##converting variables from one type to another
+```{r}
+as.numeric(norm_samp_pos)
+```
+#Problem 2 
 
 

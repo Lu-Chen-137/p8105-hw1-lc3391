@@ -29,7 +29,14 @@ mean(pull(la_df, vec_factor))
 ```
 ##converting variables from one type to another
 ```{r}
+#covert the logical vector to numeric and multiply the random samnple by the result
+as.numeric(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 
+#covert the logical vector to factor and multiply the random samnple by the result
+as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
+
+#convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
+as.numeric(as.factor(pull(la_df, norm_samp_pos)))*pull(la_df, norm_samp)
 ```
 
 
