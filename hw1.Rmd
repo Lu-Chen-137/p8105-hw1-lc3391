@@ -1,5 +1,6 @@
 ---
 title: "p8105_hw1_lc3391"
+author: "Lu Chen"
 date: "09/17/2019"
 output: github_document
 ---

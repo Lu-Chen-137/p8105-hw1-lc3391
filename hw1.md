@@ -22,7 +22,7 @@ la_df= tibble(
 mean(pull(la_df, norm_samp))
 ```
 
-    ## [1] 0.1466755
+    ## [1] 0.6378671
 
 ``` r
 mean(pull(la_df, norm_samp_pos))
@@ -48,7 +48,7 @@ mean(pull(la_df, vec_factor))
 
     ## [1] NA
 
--   The mean of the numeric vector, norm\_samp, is 0.1466755;
+-   The mean of the numeric vector, norm\_samp, is 0.6378671;
 -   The mean of the logical vector, norm\_samp\_pos is 0.625;
 -   And NO mean could be taken for the character vector and factor vector.
 
@@ -60,8 +60,8 @@ converting variables from one type to another
 as.numeric(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 ```
 
-    ## [1] 0.3204064 0.0000000 0.4680994 0.6571017 0.9321928 0.3065544 0.0000000
-    ## [8] 0.0000000
+    ## [1] 1.0264271 1.4630650 1.0833036 0.0000000 0.9728837 0.0000000 0.0000000
+    ## [8] 1.6603717
 
 ``` r
 #convert the logical vector to factor and multiply the random sample by the result
@@ -75,8 +75,8 @@ as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 as.numeric(as.factor(pull(la_df, norm_samp_pos)))*pull(la_df, norm_samp)
 ```
 
-    ## [1]  0.6408127 -0.2963206  0.9361987  1.3142035  1.8643857  0.6131088
-    ## [7] -0.3448897 -0.8697400
+    ## [1]  2.0528541  2.9261300  2.1666073 -0.6282698  1.9457674 -0.1454793
+    ## [7] -0.3293649  3.3207434
 
 Problem 2
 =========
@@ -96,12 +96,12 @@ Short descprition
 
 -   the number of row in `p2_df` is 500;
 -   the number of column in `p2_df` is 5;
--   the mean of the x is 0.0108743;
--   the mean of the y is 0.0203131;
--   the median of the x is 0.0186161;
--   the median of the y is 0.0307908;
--   the standard deviation of x is 0.981596;
--   the proportion of cases for which x + y &gt; 1 is 0.256;
+-   the mean of the x is 0.0432372;
+-   the mean of the y is 0.0791862;
+-   the median of the x is 0.0931009;
+-   the median of the y is 0.0637138;
+-   the standard deviation of x is 0.9813603;
+-   the proportion of cases for which x + y &gt; 1 is 0.23;
 
 Scatterplot
 -----------
