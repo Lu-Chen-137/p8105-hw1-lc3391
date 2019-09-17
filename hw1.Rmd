@@ -12,7 +12,7 @@ library(tidyverse)
 #Problem 1
 
 ##Creating a data frame
-```{r}
+```{r problem1_parta}
 la_df= tibble(
   norm_samp = rnorm(8),
   norm_samp_pos = norm_samp > 0,
@@ -27,8 +27,14 @@ mean(pull(la_df, vec_char))
 mean(pull(la_df, vec_factor))
 
 ```
+
+The mean of the numeric vector, norm_samp, is `r mean(pull(la_df, norm_samp))`.
+The mean of the logical vector, norm_samp_pos is `r mean(pull(la_df, norm_samp_pos))`.
+And NO mean could be taken for the character vector and factor vector.
+
 ##converting variables from one type to another
-```{r}
+```{r problem1_partb, warning = FALSE}
+
 #covert the logical vector to numeric and multiply the random samnple by the result
 as.numeric(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 
@@ -41,7 +47,7 @@ as.numeric(as.factor(pull(la_df, norm_samp_pos)))*pull(la_df, norm_samp)
 
 
 #Problem 2
-```{r}
+```{r problem2_part1}
 p2_df= tibble(
   x = rnorm(500),
   y = rnorm(500),
