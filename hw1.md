@@ -20,13 +20,13 @@ la_df= tibble(
 mean(pull(la_df, norm_samp))
 ```
 
-    ## [1] 0.4290628
+    ## [1] -0.1343904
 
 ``` r
 mean(pull(la_df, norm_samp_pos))
 ```
 
-    ## [1] 0.875
+    ## [1] 0.375
 
 ``` r
 mean(pull(la_df, vec_char))
@@ -46,6 +46,8 @@ mean(pull(la_df, vec_factor))
 
     ## [1] NA
 
+The mean of the numeric vector, norm\_samp, is -0.1343904. The mean of the logical vector, norm\_samp\_pos is 0.375. And NO mean could be taken for the character vector and factor vector.
+
 converting variables from one type to another
 ---------------------------------------------
 
@@ -54,16 +56,13 @@ converting variables from one type to another
 as.numeric(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 ```
 
-    ## [1] 0.62050429 0.91739703 0.00000000 0.85800653 0.68935999 0.05601697
-    ## [7] 0.60566970 1.23864921
+    ## [1] 0.15133162 0.00000000 0.00000000 0.00000000 0.91154280 0.06797252
+    ## [7] 0.00000000 0.00000000
 
 ``` r
 #covert the logical vector to factor and multiply the random samnple by the result
 as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 ```
-
-    ## Warning in Ops.factor(as.factor(pull(la_df, norm_samp_pos)), pull(la_df, :
-    ## '*' not meaningful for factors
 
     ## [1] NA NA NA NA NA NA NA NA
 
@@ -72,8 +71,8 @@ as.factor(pull(la_df, norm_samp_pos))*pull(la_df, norm_samp)
 as.numeric(as.factor(pull(la_df, norm_samp_pos)))*pull(la_df, norm_samp)
 ```
 
-    ## [1]  1.2410086  1.8347941 -1.5531013  1.7160131  1.3787200  0.1120339
-    ## [7]  1.2113394  2.4772984
+    ## [1]  0.3026632 -0.1626245 -0.4130264 -0.4824880  1.8230856  0.1359450
+    ## [7] -0.2715142 -0.8763170
 
 Problem 2
 =========

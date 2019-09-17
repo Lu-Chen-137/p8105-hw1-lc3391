@@ -13,6 +13,8 @@ library(tidyverse)
 
 ##Creating a data frame
 ```{r problem1_parta}
+library(tidyverse)
+
 la_df= tibble(
   norm_samp = rnorm(8),
   norm_samp_pos = norm_samp > 0,
@@ -28,9 +30,9 @@ mean(pull(la_df, vec_factor))
 
 ```
 
-The mean of the numeric vector, norm_samp, is `r mean(pull(la_df, norm_samp))`.
-The mean of the logical vector, norm_samp_pos is `r mean(pull(la_df, norm_samp_pos))`.
-And NO mean could be taken for the character vector and factor vector.
+The mean of the numeric vector, norm_samp, is `r mean(pull(la_df, norm_samp))`;
+The mean of the logical vector, norm_samp_pos is `r mean(pull(la_df, norm_samp_pos))`;
+And NO mean could be taken for the character vector and factor vector
 
 ##converting variables from one type to another
 ```{r problem1_partb, warning = FALSE}
@@ -51,7 +53,20 @@ as.numeric(as.factor(pull(la_df, norm_samp_pos)))*pull(la_df, norm_samp)
 p2_df= tibble(
   x = rnorm(500),
   y = rnorm(500),
-  vec_log = x + y > 1
+  vec_log2 = x + y > 1,
+  vec_num2 = as.numeric(vec_log2),
+  vec_fac2 = as.factor(vec_log2)
 )
+
 ```
+
+##Short descprition
+the number of row in `p2_df` is `r nrow(p2_df)`;
+the number of column in `p2_df` is `r ncol(p2_df)`;
+the mean of the x is `r mean(pull(p2_df, x))`;
+the mean of the y is `r mean(pull(p2_df, y))`;
+the median of the x is `r median(pull(p2_df, x))`;
+the median of the y is `r median(pull(p2_df, y))`;
+the standard deviation of x is `r sd(pull(p2_df, x))`;
+the proportion of cases for which x + y > 1 is `r mean(pull(p2_df, vec_log2))`;
 
